@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome - BHAVIK A. KALADIYA Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Additional styles for the registration page */
+        .registration-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--bg-color) 0%, var(--card-bg) 100%);
+            padding: 20px;
+        }
+        
+        .registration-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 15px;
+            padding: 40px;
+            text-align: center;
+            max-width: 500px;
+            width: 100%;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transform: translateY(0);
+            transition: transform 0.3s ease;
+        }
+        
+        .registration-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .portfolio-title {
+            font-size: 2.2em;
+            margin-bottom: 10px;
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+        
+        .portfolio-subtitle {
+            color: var(--text-color);
+            margin-bottom: 30px;
+            font-size: 1.1em;
+            opacity: 0.8;
+        }
+        
+        .welcome-text {
+            margin-bottom: 30px;
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        .registration-form {
+            text-align: left;
+            margin: 30px 0;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--text-color);
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            background: var(--bg-color);
+            color: var(--text-color);
+            font-size: 1em;
+            transition: border-color 0.3s ease;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-color);
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+        
+        .submit-btn {
+            background: var(--accent-color);
+            color: black;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            font-weight: 600;
+        }
+        
+        .submit-btn:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+        
+        .submit-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .loading {
+            display: none;
+            margin-top: 20px;
+            color: var(--accent-color);
+            font-weight: 500;
+        }
+        
+        .success-message {
+            display: none;
+            background: #4CAF50;
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        
+        .error-message {
+            display: none;
+            background: #f44336;
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        
+        .tech-badge {
+            background: var(--accent-color);
+            color: black;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 0.8em;
+            margin: 0 5px;
+        }
+        
+        .required {
+            color: #f44336;
+        }
+        
+        .form-row {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .form-row .form-group {
+            flex: 1;
+        }
+        
+        @media (max-width: 768px) {
+            .registration-card {
+                padding: 30px 20px;
+                margin: 10px;
+            }
+            
+            .portfolio-title {
+                font-size: 1.8em;
+            }
+            
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+        }
+    </style>
+</head>
+<body data-theme="dark">
+    <div class="registration-container">
+        <div class="registration-card">
+            <h1 class="portfolio-title">BHAVIK A. KALADIYA</h1>
+            <p class="portfolio-subtitle">Student & Tech Enthusiast</p>
+            
+            <div class="welcome-text">
+                <p>Welcome to my portfolio! Please register to explore my projects, skills, and journey in technology.</p>
+            </div>
+            
+            <div class="tech-stack">
+                <span class="tech-badge">MERN Stack</span>
+                <span class="tech-badge">AWS</span>
+                <span class="tech-badge">Python</span>
+                <span class="tech-badge">Linux</span>
+            </div>
+            
+            <form class="registration-form" id="registrationForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firstName">First Name <span class="required">*</span></label>
+                        <input type="text" id="firstName" name="firstName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Last Name <span class="required">*</span></label>
+                        <input type="text" id="lastName" name="lastName" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email Address <span class="required">*</span></label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="profession">Profession/Role</label>
+                        <input type="text" id="profession" name="profession" placeholder="e.g., Student, Developer, Designer">
+                    </div>
+                    <div class="form-group">
+                        <label for="company">Company/Organization</label>
+                        <input type="text" id="company" name="company" placeholder="e.g., Google, Freelancer">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="purpose">Purpose of Visit</label>
+                    <select id="purpose" name="purpose">
+                        <option value="">Select purpose</option>
+                        <option value="hiring">Hiring/Recruitment</option>
+                        <option value="collaboration">Collaboration</option>
+                        <option value="learning">Learning/Inspiration</option>
+                        <option value="networking">Networking</option>
+                        <option value="client">Potential Client</option>
+                        <option value="student">Fellow Student</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Message (Optional)</label>
+                    <textarea id="message" name="message" placeholder="Tell me about yourself or what you're looking for..."></textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn" id="submitBtn">
+                    Register & Enter Portfolio
+                </button>
+                
+                <div class="loading" id="loading">
+                    📝 Registering your visit...
+                </div>
+                
+                <div class="success-message" id="successMessage">
+                    ✅ Registration successful! Redirecting to portfolio...
+                </div>
+                
+                <div class="error-message" id="errorMessage">
+                    ❌ Registration failed. Please try again.
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Registration form handling
+        document.getElementById('registrationForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const submitBtn = document.getElementById('submitBtn');
+            const loading = document.getElementById('loading');
+            const successMessage = document.getElementById('successMessage');
+            const errorMessage = document.getElementById('errorMessage');
+            
+            // Hide previous messages
+            successMessage.style.display = 'none';
+            errorMessage.style.display = 'none';
+            
+            // Show loading state
+            submitBtn.disabled = true;
+            loading.style.display = 'block';
+            
+            // Collect form data
+            const formData = new FormData(this);
+            const userData = {
+                firstName: formData.get('firstName'),
+                lastName: formData.get('lastName'),
+                email: formData.get('email'),
+                profession: formData.get('profession'),
+                company: formData.get('company'),
+                purpose: formData.get('purpose'),
+                message: formData.get('message'),
+                timestamp: new Date().toISOString(),
+                userAgent: navigator.userAgent,
+                ipAddress: 'Will be captured server-side',
+                referrer: document.referrer || 'Direct visit'
+            };
+            
+            try {
+                // Send data to PHP backend
+                const response = await fetch('save_user.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(userData)
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    loading.style.display = 'none';
+                    successMessage.style.display = 'block';
+                    
+                    // Redirect to main portfolio after 2 seconds
+                    setTimeout(() => {
+                        window.location.href = 'index.html';
+                    }, 2000);
+                } else {
+                    throw new Error(result.message || 'Registration failed');
+                }
+                
+            } catch (error) {
+                console.error('Registration error:', error);
+                loading.style.display = 'none';
+                errorMessage.style.display = 'block';
+                errorMessage.textContent = '❌ ' + error.message;
+                
+                submitBtn.disabled = false;
+            }
+        });
+        
+        // Apply cursor circle effect
+        const cursor = document.createElement('div');
+        cursor.classList.add('cursor-circle');
+        document.body.appendChild(cursor);
+
+        document.addEventListener('mousemove', e => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        });
+        
+        // Form validation
+        const inputs = document.querySelectorAll('input[required]');
+        inputs.forEach(input => {
+            input.addEventListener('blur', function() {
+                if (!this.value.trim()) {
+                    this.style.borderColor = '#f44336';
+                } else {
+                    this.style.borderColor = var('--border-color');
+                }
+            });
+        });
+        
+        // Email validation
+        document.getElementById('email').addEventListener('blur', function() {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(this.value)) {
+                this.style.borderColor = '#f44336';
+            } else {
+                this.style.borderColor = var('--border-color');
+            }
+        });
+    </script>
+    <script src="main.js"></script>
+</body>
+</html>

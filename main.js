@@ -67,3 +67,16 @@ document.addEventListener('mousemove', e => {
   cursor.style.left = e.clientX + 'px';
   cursor.style.top = e.clientY + 'px';
 });
+
+
+
+
+// db.students.aggregate([
+//   {$match : {price : {$lt : 50}}},
+//   {$match : {price : {$gte : 40}}},
+//   {$group : {
+//     _id : '$name',
+//     totalPrice : {$sum : '$price'}
+//   }}
+//   {$sort : {totalPrice : 1}}
+// ])
